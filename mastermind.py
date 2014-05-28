@@ -45,7 +45,7 @@ def showWords(words):
 	
 def matchLetters(word, compareWord):
 	matchInfo = {
-		"output" 		: "",
+		"output" 	: "",
 		"nCorrect" 	: 0
 	}
 	
@@ -80,10 +80,9 @@ def title():
 	print "---------------------------"
 
 def play():
-	nWords 			= 10
 	guessesLeft 	= 4
 	wordLength 		= getWordLength()
-	words 			= getWords(wordLength, nWords)
+	words 			= getWords(wordLength, 10)
 	guessWord 		= getRandomElement(words)
 	
 	showWords(words)
