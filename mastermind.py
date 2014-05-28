@@ -58,14 +58,14 @@ def matchLetters(word, compareWord):
 		
 	return matchInfo
 	
-def results(matchInfo, wordLength):
+def results(matchInfo):
 	print "(" + str(matchInfo['nCorrect']) + "/" + str(wordLength) + " correct) " + matchInfo['output']
 	print "" 
 			
-	if (matchInfo['nCorrect'] == wordLength):
-		return True
+	if (matchInfo['nCorrect'] == len(matchInfo['output'])):
+		return True #win
 	else:
-		return False
+		return False #lose
 		
 def win():
 	print "Well done! You got it!"
@@ -81,8 +81,7 @@ def title():
 
 def play():
 	guessesLeft 	= 4
-	wordLength 		= getWordLength()
-	words 			= getWords(wordLength, 10)
+	words 			= getWords(getWordLength(), 10)
 	guessWord 		= getRandomElement(words)
 	
 	showWords(words)
@@ -90,7 +89,7 @@ def play():
 	while (guessesLeft > 0):
 		guess = getGuess(guessesLeft)
 		
-		if results(matchLetters(guess, guessWord), wordLength):
+		if results(matchLetters(guess, guessWord)):
 			win()
 			break
 		
