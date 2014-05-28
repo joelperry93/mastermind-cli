@@ -18,15 +18,16 @@ def getWordLength():
 
 def getGuess(guessesLeft):
 	return raw_input("Guess? (" + str(guessesLeft) + " left): ")
+
+def getRandomElement(list):
+	return list[random.randint(0, len(list) - 1)]
 	
 def getWords(length, numberOfWords):
 	dictionary 	= getDictionary()
-	dictLen 		= len(dictionary)
-	words 			= []
+	words 		= []
 
 	while (len(words) < numberOfWords):
-		randomInt 		= random.randint(0, dictLen - 1)
-		randomWord 	= dictionary[randomInt]
+		randomWord = getRandomElement(dictionary)
 		
 		if (len(randomWord) == length):
 			words.append(randomWord)
@@ -81,9 +82,9 @@ def title():
 def play():
 	nWords 			= 10
 	guessesLeft 	= 4
-	wordLength 	= getWordLength()
+	wordLength 		= getWordLength()
 	words 			= getWords(wordLength, nWords)
-	guessWord 		= words[random.randint(0, len(words) - 1)]
+	guessWord 		= getRandomElement(words)
 	
 	showWords(words)
 	
